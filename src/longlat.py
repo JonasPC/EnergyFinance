@@ -6,9 +6,10 @@ import lxml
 
 class LongLat():
 
-    def load_longlat():
+    PATH = 'datafolder//raw//longlat//'
 
-        PATH = 'datafolder//raw//longlat//'
+    @classmethod
+    def load_longlat(cls):
 
         source = requests.get('https://inkplant.com//code//state-latitudes-longitudes').text
         soup = BeautifulSoup(source, 'lxml')
@@ -27,4 +28,21 @@ class LongLat():
             else:
                 row_list.append(row)
 
-        pd.DataFrame(row_list, columns=row_header).to_csv(PATH + 'longlat.csv')
+        pd.DataFrame(row_list, columns=row_header).to_csv(cls.PATH + 'longlat.csv', index=False)
+
+    @classmethod
+    def clean_longlat(cls):
+
+        #df_test = pd.read_csv(cls.PATH + 'longlat.csv')
+        try:
+            df = pd.read_csv(cls.PATH + 'longlat.csv')
+        except:
+
+            print('in exception')
+            cls.load_longlat()
+            df = pd.read_csv(cls.PATH + 'longlat.csv')
+
+        return df
+
+
+LongLat.clean_longlat()
