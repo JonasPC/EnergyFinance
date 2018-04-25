@@ -42,7 +42,5 @@ class LongLat():
             cls.load_longlat()
             df = pd.read_csv(cls.PATH + 'longlat.csv')
 
+        # change name of dataframe
         return df
-
-
-LongLat.clean_longlat()
