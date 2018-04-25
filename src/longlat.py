@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 
+# own packages
+from src.utils import Utils
+
 
 class LongLat():
 
@@ -36,11 +39,14 @@ class LongLat():
         #df_test = pd.read_csv(cls.PATH + 'longlat.csv')
         try:
             df = pd.read_csv(cls.PATH + 'longlat.csv')
+            df = df.set_index('State').transpose()
+
         except:
 
             print('in exception')
             cls.load_longlat()
             df = pd.read_csv(cls.PATH + 'longlat.csv')
+            df = df.set_index('State').transpose()
 
-        # change name of dataframe
-        return df
+        df = Utils.rename(df)
+        return Utils.drop_cols(df)

@@ -2,6 +2,9 @@ import pandas as pd
 import requests
 from urllib.request import urlretrieve
 
+# own packages
+from src.utils import Utils
+
 
 class Population():
 
@@ -17,8 +20,8 @@ class Population():
     def to_clean(cls):
 
         raw = pd.read_csv(cls.PATH + 'Population.csv', encoding='latin-1')
-        cols = raw.drop([0, 1])['NAME']
-        pop = raw.drop([0, 1])['POPESTIMATE2017']
+        cols = raw.drop([0])['NAME']
+        pop = raw.drop([0])['POPESTIMATE2017']
 
         df = pd.DataFrame([pop])
         df.columns = cols
@@ -37,4 +40,5 @@ class Population():
             cls.load_population()
             df = cls.to_clean()
 
-        return df
+        df = Utils.rename(df)
+        return Utils.drop_cols(df)
