@@ -6,6 +6,7 @@ class Utils(object):
         df.rename(columns={
             'AK': 'Alaska',
             'AL': 'Alabama',
+            'AR': 'Arkansas',
             'AZ': 'Arizona',
             'CA': 'California',
             'CO': 'Colorado',
