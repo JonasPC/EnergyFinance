@@ -58,7 +58,14 @@ class Utils(object):
         return df
 
     @staticmethod
-    def drop_cols(df):
-        df = df.drop(['Alaska', 'Hawaii', 'District of Columbia',
-                      'Puerto Rico Commonwealth'], axis=1, errors='ignore')
-        return df
+    def read_states():
+        with open('datafolder//columns.txt', 'r') as f:
+            raw = f.read()
+            contents = raw[:-1]  # to remove last space
+            return contents.split('_')
+
+    @classmethod
+    def drop_cols(cls, df):
+
+        states = cls.read_states()
+        return df[states]
