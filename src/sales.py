@@ -9,9 +9,9 @@ class Sales(object):
     @classmethod    
     def index_to_datetime(cls):
         df = pd.read_sas(cls.PATH)
+        origin = datetime.datetime(1960, 1, 1).toordinal()
         for i in range(len(df)):
-            df['date'][i] = datetime.timedelta(days=df['date'][i]) + \
-            datetime.datetime.strptime('1960-01-01', '%Y-%m-%d')
+            df['date'][i] = datetime.datetime.fromordinal(int(df['date'][i]) + origin)
         pd.to_datetime(df.date)
         df = df.set_index('date')
         return df
