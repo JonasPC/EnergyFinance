@@ -19,9 +19,9 @@ class Prices(object):
     @classmethod
     def col_selector(cls):
         df = cls.index_to_datetime()
-        sales = pd.DataFrame(index=df.index)
+        prices = pd.DataFrame(index=df.index)
         for i in range(1, len(df.columns), 2):
-                prices = pd.concat([sales, df.iloc[:, i]], axis=1)
+                prices = pd.concat([prices, df.iloc[:, i]], axis=1)
         return prices
         
     
@@ -43,4 +43,3 @@ class Prices(object):
         except:
             print('Process failed')
         
-    
