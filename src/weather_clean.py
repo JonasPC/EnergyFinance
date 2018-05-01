@@ -6,8 +6,6 @@ from src.utils import Utils
 
 class Weather(object):
     
-    PATH = '..\\weather'
-       
     @classmethod
     def load_weather(cls):
         os.chdir('weather')
@@ -70,4 +68,3 @@ class Weather(object):
                 
     def __repr__(self):
         return str(self.clean_weather('weather').head())
-    
