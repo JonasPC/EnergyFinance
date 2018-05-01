@@ -7,11 +7,8 @@ from src.utils import Utils
 
 class Weather(object):
 
-    PATH = '..\\weather'
-
     @classmethod
     def load_weather(cls):
-        # os.chdir('weather')
         for i in range(1, 49):
             for j in range(1, 13):
                 if os.path.exists('..\\' + str(i) + '-' + str(j) + '.csv') == True:
@@ -21,7 +18,6 @@ class Weather(object):
                         + str(i) + "-tavg-1-" + str(j) + \
                         "-1990-2013.csv?base_prd=true&begbaseyear=1901&endbaseyear=2000"
                     urlretrieve(URL, 'datafolder//raw//weather//' + str(i) + '-' + str(j) + '.csv')
-        # os.chdir('..')
 
     @staticmethod
     def clean_weather(data='weather'):
