@@ -46,7 +46,7 @@ class Utils(object):
             'RI': 'Rhode Island',
             'SC': 'South Carolina',
             'SD': 'South Dakota',
-            'TN': 'Tennesee',
+            'TN': 'Tennessee',
             'TX': 'Texas',
             'UT': 'Utah',
             'VT': 'Vermont',
