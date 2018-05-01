@@ -2,6 +2,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 import lxml
+from datetime import datetime
 
 # own packages
 from src.utils import Utils
@@ -42,4 +43,11 @@ class GDP():
 
         e_gdp = cls.load_gdp('early')
         l_gdp = cls.load_gdp('late')
-        return pd.concat([e_gdp, l_gdp])
+
+        gdp = pd.concat([e_gdp, l_gdp])
+        gdp['temptime'] = gdp.index
+        gdp['time'] = gdp.apply(lambda row: datetime(int(row['temptime']), 1, 1), axis=1)
+        gdp.set_index('time', inplace=True)
+
+        gdp = Utils.rename(gdp)
+        return Utils.drop_cols(gdp)
