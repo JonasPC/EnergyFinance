@@ -1,3 +1,5 @@
+import os
+print(os.getcwd())
 from src.gdp import GDP
 from src.longlat import LongLat
 from src.population import Population
