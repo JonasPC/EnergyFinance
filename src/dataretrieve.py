@@ -55,9 +55,13 @@ class DataRetrieve(object):
         return df[state]
 
     @classmethod
-    def state_data():
-        cls.pick_state
+    def state_data(cls, state):
+
+        df_prices = pd.Series(cls.pick_state(cls.load_prices(), state), name='prices')
+        df_sales = pd.Series(cls.pick_state(cls.load_sales(), state), name='sales')
+        df_weather = pd.Series(cls.pick_state(cls.load_weather(), state), name='weather')
+
+        return pd.concat([df_prices, df_sales, df_weather], axis=1)
 
 
-wea = DataRetrieve.load_weather()
-DataRetrieve.pick_state(wea, 'Alabama')
+DataRetrieve.state_data('Alabama').head()
