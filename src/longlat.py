@@ -50,3 +50,8 @@ class LongLat():
 
         df = Utils.rename(df)
         return Utils.drop_cols(df)
+
+    @classmethod
+    def write_longlat(cls):
+        df = cls.clean_longlat()
+        df.to_csv('datafolder//clean//longlat.csv')

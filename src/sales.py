@@ -41,3 +41,8 @@ class Sales(object):
             return df
         except:
             print('Process failed')
+
+    @classmethod
+    def write_sales(cls):
+        df = cls.clean_sales()
+        df.to_csv('datafolder//clean//sales.csv')

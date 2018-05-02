@@ -73,3 +73,8 @@ class Weather(object):
 
     def __repr__(self):
         return str(self.clean_weather('weather').head())
+
+    @classmethod
+    def write_weather(cls):
+        df = cls.clean_weather()
+        df.to_csv('datafolder//clean//weather.csv')
