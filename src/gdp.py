@@ -51,3 +51,9 @@ class GDP():
 
         gdp = Utils.rename(gdp)
         return Utils.drop_cols(gdp)
+
+    @classmethod
+    def write_gdp(cls):
+
+        df = cls.clean_gdp()
+        df.to_csv('datafolder//clean//gdp.csv')

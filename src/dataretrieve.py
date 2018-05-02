@@ -8,8 +8,7 @@ class DataRetrieve(object):
 
     states = Utils.read_states()
 
+    def data_for_state(state):
+        assert state in cls.states, ""
 
-s
-
-    pd.concat()
     # cross sectional data
