@@ -14,7 +14,8 @@ class Sales(object):
         for i in range(len(df)):
             df['date'][i] = datetime.datetime.fromordinal(int(df['date'][i]) + origin)
         pd.to_datetime(df.date)
-        df = df.set_index('date')
+        df = df.rename(columns={'date':'time'})
+        df = df.set_index('time')
         return df
 
     @classmethod
