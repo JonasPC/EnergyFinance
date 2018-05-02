@@ -43,6 +43,6 @@ class Prices(object):
             print('Process failed')
 
     @classmethod
-    def write_sales(cls):
+    def write_prices(cls):
         df = cls.clean_prices()
         df.to_csv('datafolder//clean//prices.csv')
