@@ -42,3 +42,8 @@ class Population():
 
         df = Utils.rename(df)
         return Utils.drop_cols(df)
+
+    @classmethod
+    def write_population(cls):
+        df = cls.clean_population()
+        df.to_csv('datafolder//clean//population.csv')
