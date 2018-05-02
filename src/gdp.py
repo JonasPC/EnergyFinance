@@ -49,6 +49,7 @@ class GDP():
         gdp['time'] = gdp.apply(lambda row: datetime(int(row['temptime']), 1, 1), axis=1)
         gdp.set_index('time', inplace=True)
 
+        gdp = gdp.resample('MS', label='left').mean().fillna(method='ffill')
         gdp = Utils.rename(gdp)
         return Utils.drop_cols(gdp)
 
@@ -56,3 +57,6 @@ class GDP():
     def write_gdp(cls):
         df = cls.clean_gdp()
         df.to_csv('datafolder//clean//gdp.csv')
+
+
+GDP.write_gdp()
