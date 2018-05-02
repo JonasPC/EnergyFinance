@@ -57,6 +57,3 @@ class GDP():
     def write_gdp(cls):
         df = cls.clean_gdp()
         df.to_csv('datafolder//clean//gdp.csv')
-
-
-GDP.write_gdp()
