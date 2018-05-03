@@ -165,6 +165,3 @@ class DataRetrieve(object):
     def write_final_data(cls):
         data = cls.get_final_data()
         data.to_csv('datafolder//final.csv', index=False)
-
-
-DataRetrieve.write_final_data()
