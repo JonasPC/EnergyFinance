@@ -1,8 +1,7 @@
 import pandas as pd
-from src.moments import Moments
-from src.utils import Utils
 
-# own packagees
+# own packages
+from src.moments import Moments
 from src.utils import Utils
 
 
@@ -134,7 +133,7 @@ class DataRetrieve(object):
 
         prices = cls.former_obs(state=state, series_name='prices')
         sales = cls.former_obs(state=state, series_name='sales')
-        weather = cls.former_obs(state=state, series_name='sales')
+        weather = cls.former_obs(state=state, series_name='weather')
 
         mom1 = cls.former_obs(state=state, series_name='mom1')
         mom2 = cls.former_obs(state=state, series_name='mom2')
@@ -153,7 +152,19 @@ class DataRetrieve(object):
 
         df['y'] = df['prices'].shift(-1)
 
-        return df.dropna(axis=0)
+        return df.dropna()
+
+    @classmethod
+    def get_final_data(cls):
+        states = Utils.read_states()
+        df_list = [cls.state_data(state) for state in states]
+
+        return pd.concat(df_list, axis=0)
+
+    @classmethod
+    def write_final_data(cls):
+        data = cls.get_final_data()
+        data.to_csv('datafolder//final.csv', index=False)
 
 
-DataRetrieve.state_data('Alabama')
+DataRetrieve.write_final_data()
