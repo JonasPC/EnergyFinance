@@ -10,3 +10,4 @@ population: https://www2.census.gov/programs-surveys/popest/datasets/2010-2017/s
 gdp (late phase): https://www.bea.gov/iTable/iTable.cfm?reqid=70&step=10&isuri=1&7003=200&7035=-1&7004=sic&7005=1&7006=xx&7036=-1&7001=1200&7002=1&7090=70&7007=-1&7093=levels#reqid=70&step=10&isuri=1&7003=200&7035=-1&7004=naics&7005=1&7006=xx&7036=-1&7001=1200&7002=1&7090=70&7007=-1&7093=levels
 gdp (old phase): https://www.bea.gov/iTable/iTable.cfm?reqid=70&step=1&isuri=1&acrdn=2#reqid=70&step=10&isuri=1&7003=200&7035=-1&7004=sic&7005=1&7006=xx&7036=-1&7001=1200&7002=1&7090=70&7007=1997,1996,1995,1994,1993,1992,1991,1990&7093=levels
 weather :
+Electricity (Prices & Sales): "The US Energy Information Administration"
